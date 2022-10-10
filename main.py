@@ -26,7 +26,18 @@ def main():
     parser.add_argument('text')
     args = parser.parse_args()
     printer = Printer(args.text, args.sep)
-    print(printer.utf16())
+    if args.utf8:
+        print(printer.utf8())
+        return
+    if args.utf16:
+        print(printer.utf16())
+        return
+    if args.utf32:
+        print(printer.utf32())
+        return
+    print('UTF-8:', printer.utf8())
+    print('UTF-16:', printer.utf16())
+    print('UTF-32:', printer.utf32())
 
 
 if __name__ == '__main__':
